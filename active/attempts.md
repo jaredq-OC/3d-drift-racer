@@ -32,3 +32,19 @@ KB / Research Consulted: local source inspection, browser runtime eval
 Result: PASS
 Finding: Real root cause fixed. WebGL framebuffer now non-empty and scene visible.
 Next: remove debug helpers, verify real scene, then commit/push fix
+
+## [2026-04-09 07:22] Attempt 5
+Step: TASK-11 — post-fix cleanup
+Approach: Removed temporary boot instrumentation from main.ts, fixed HUD speed display double-conversion, kept core blank-screen DOM fix in place
+KB / Research Consulted: local source inspection
+Result: PASS
+Finding: Recovery-only debug hooks removed; runtime code path simplified
+Next: visual verify once browser tooling is available again, then commit/push cleanup
+
+## [2026-04-09 07:49] Attempt 6
+Step: TASK-11 — stabilization after blank-screen fix
+Approach: audited repo state after recovery, confirmed only residual cleanup changes remained uncommitted (main.ts/hud.ts + project state files)
+KB / Research Consulted: local source inspection
+Result: PASS
+Finding: blank-screen bug is no longer the blocker; project has moved to stabilization/polish phase
+Next: commit cleanup and continue visual polish on next pass

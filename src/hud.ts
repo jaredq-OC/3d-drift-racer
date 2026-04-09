@@ -42,7 +42,7 @@ export class HUD {
 
   update(score: ScoreSystem, speedKmh: number, _isTouch: boolean) {
     this.scoreEl.textContent = Math.floor(score.totalScore).toLocaleString();
-    this.speedEl.textContent = String(Math.round(speedKmh * 3.6));
+    this.speedEl.textContent = String(Math.round(speedKmh));
 
     this.boostFill.style.width = score.boostMeter + '%';
     this.boostFill.style.background = score.boostMeter > 80

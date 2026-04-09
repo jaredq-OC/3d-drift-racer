@@ -1,5 +1,5 @@
 # Plan Execution: 3d-drift-racer
-Project: 3d-drift-racer | Updated: 2026-04-09 04:58 UTC
+Project: 3d-drift-racer | Updated: 2026-04-09 07:04 UTC
 
 ## Operating Mode
 - Grade: Personal Use
@@ -9,63 +9,29 @@ Project: 3d-drift-racer | Updated: 2026-04-09 04:58 UTC
 
 ## Context
 - Success Criteria: Arcade drift racer — car drives, drifts trigger scoring, neon visuals, 60fps (from PRD.md)
-- Relevant KBs: none (web/Three.js project)
-- Current Phase: Phase 1 — Foundation
-- Current Milestone: TASK-11 Smoke Test + GitHub Handoff READY
+- Current focus: blank-screen regression recovery
 
 ## Cursor
-- Current Step ID: TASK-11 — Smoke test + handoff
-- Status: COMPLETE — pushed to GitHub, handoff ready
-- Last Action: All tasks complete. GitHub push done. Dev server running at :3001.
-- Finding: Repo at https://github.com/jaredq-OC/3d-drift-racer, branch main, commit pushed
-- Next Action: Kirt opens http://localhost:3001 to verify visuals before production build
+- Current Step ID: TASK-11 — visual smoke test
+- Status: FIXED
+- Last Action: Investigated live runtime, identified DOM/canvas replacement bug in HUD init, patched renderer visibility path, verified visible gameplay scene in browser
+- Finding: Root cause of blank screen was `document.body.innerHTML += ...` in `HUD.init()` replacing the Three.js canvas after renderer boot
+- Next Action: commit + push fix, then continue polish
 - Blocker: none
-- KB Flag: none
 
-## Active Slice — ALL COMPLETE
-- [x] TASK-01: Project Setup — Vite + vanilla TypeScript, install deps, verify WebGL ✓
-- [x] TASK-02: Physics World + Car — RaycastVehicle, throttle/steering, rear drift friction ✓
-- [x] TASK-03: Track Generation — CatmullRomCurve3 closed loop, neon barriers ✓
-- [x] TASK-04: Drift Detection + Scoring — slip angle >15°, multiplier tiers 2×/4×/8× ✓
-- [x] TASK-05: Boost System — 1.5× speed, FOV 80°, auto-activate ✓
-- [x] TASK-06: Low-Poly Car Mesh — BoxGeometry, flatShading, orange car ✓
-- [x] TASK-07: Neon Visual Effects + Bloom — UnrealBloomPass, emissive materials ✓
-- [x] TASK-08: Dynamic Camera — follow cam, drift FOV 72°, boost FOV 80°, 5° drift bank ✓
-- [x] TASK-09: HUD Overlay — score, speed, boost bar, drift combo text ✓
-- [x] TASK-10: Input (WASD + nipplejs touch) — complete ✓
-- [x] TASK-11: Smoke Test — TypeScript clean, server running ✓
+## Fix Summary
+- Fixed HUD DOM mutation: switched from `document.body.innerHTML += ...` to `insertAdjacentHTML('beforeend', ...)`
+- Fixed physics axis mismatch: gravity is now Y-down, aligned with scene/camera/track
+- Simplified camera to a reliable third-person framing for recovery
+- Kept direct renderer path while composer path is deferred
+- Verified visible scene in browser after reload
 
-## GitHub Handoff
-- **Repo:** https://github.com/jaredq-OC/3d-drift-racer
-- **Branch:** main
-- **Commit:** HEAD of main (pushed at ~04:58 UTC)
-- **Dev server:** http://localhost:3001 (run `npm run dev` in project dir)
-
-## Kirt Local Test Commands
-```bash
-# First time:
-git clone https://github.com/jaredq-OC/3d-drift-racer ~/Documents/openclaw/projects/3d-drift-racer
-cd ~/Documents/openclaw/projects/3d-drift-racer
-npm install
-npm run dev
-
-# Return visits:
-cd ~/Documents/openclaw/projects/3d-drift-racer
-git pull
-npm run dev
-```
+## Visual Verification
+- Browser screenshot now shows visible car + track + barriers + HUD
+- Canvas framebuffer is non-empty (`readPixels` returns opaque color, not transparent black)
+- Renderer DOM element matches visible page canvas
 
 ## Recent Checkpoints
-- [2026-04-09 04:58] ALL TASKS COMPLETE — pushed to GitHub
-- [2026-04-09 04:54] TASK-02/03 complete — car physics + track + drift scoring + camera + bloom
-- [2026-04-09 04:25] TASK-01 complete — dev server at :3001, TS clean
-
-## KB Notes
-- [KB-RULE-07] Pre-allocated reusable vectors in Car.update() and Camera.update() — no Vector3 allocations per frame
-- [KB-RULE-05] three/examples/jsm path for postprocessing imports (Vite resolves correctly)
-
-## Open Blockers
-- none
-
-## Archived Phases
-- Phase 1 foundation: COMPLETE 2026-04-09
+- [2026-04-09 07:04] Blank screen fixed — scene visibly rendering in browser
+- [2026-04-09 06:57] Root cause identified — HUD replaced renderer canvas via body innerHTML rewrite
+- [2026-04-09 04:58] Initial handoff (later proven false due render bug)

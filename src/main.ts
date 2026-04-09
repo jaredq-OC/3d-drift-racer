@@ -6,8 +6,8 @@ const canvas = document.createElement('canvas');
 document.getElementById('app')!.appendChild(canvas);
 
 const game = new Game();
-game.init(canvas);
 
+game.init(canvas);
 window.addEventListener('resize', () => game.resize());
 
 let lastTime = performance.now();
