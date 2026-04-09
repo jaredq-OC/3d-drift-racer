@@ -1,0 +1,19 @@
+# Traceability Matrix — 3D Drift Racer
+
+| RQ-ID | Brief Statement | PRD Section | Architecture DEC | AI Rule | Plan TASK | Test |
+|-------|-----------------|-------------|-----------------|---------|-----------|------|
+| RQ-01 | Player controls car | PRD §2.1 | DEC-03 | RULE-01 | TASK-01 | TEST-01 |
+| RQ-02 | Score by drifting | PRD §2.2 | DEC-04 | RULE-03 | TASK-04 | TEST-03 |
+| RQ-03 | Three.js 3D | PRD §3 | DEC-01 | — | TASK-01 | TEST-01 |
+| RQ-04 | Drift physics | PRD §2.1 | DEC-02 | RULE-02 | TASK-02 | TEST-02 |
+| RQ-05 | Racetrack | PRD §3 | DEC-03 | — | TASK-03 | TEST-01 |
+| RQ-06 | Score: angle | PRD §2.2 | DEC-04 | RULE-03 | TASK-04 | TEST-03 |
+| RQ-07 | Score: duration | PRD §2.2 | DEC-04 | RULE-03 | TASK-04 | TEST-03 |
+| RQ-08 | Boost reward | PRD §2.3 | DEC-05 | RULE-04 | TASK-05 | TEST-04 |
+| RQ-09 | Low-poly style | PRD §3.1 | DEC-06 | RULE-06 | TASK-06 | TEST-05 |
+| RQ-10 | Vibrant colors | PRD §3.1 | DEC-06 | RULE-06 | TASK-06 | TEST-05 |
+| RQ-11 | Neon accents | PRD §3.1 | DEC-07 | RULE-07 | TASK-07 | TEST-05 |
+| RQ-12 | Dynamic camera | PRD §3.2 | DEC-08 | RULE-08 | TASK-08 | TEST-06 |
+| NFR-01 | 60fps | PRD §4 | — | — | TASK-09 | TEST-07 |
+| NFR-02 | Responsive controls | PRD §2.1 | — | RULE-01 | TASK-01 | TEST-01 |
+| NFR-03 | Single-player | PRD §1 | — | — | TASK-01 | TEST-01 |

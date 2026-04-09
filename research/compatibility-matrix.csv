@@ -1,0 +1,10 @@
+# Compatibility Matrix — 3D Drift Racer
+
+| Dependency | Version | npm package | Compatibility | Verdict | Notes |
+|------------|---------|-------------|---------------|---------|-------|
+| three | ^0.160.0 | three | green | ✅ Works | ESM + types in npm |
+| cannon-es | ^0.20.0 | cannon-es | green | ✅ Works | ESM only, maintained fork |
+| vite | ^5.0.0 | vite | green | ✅ Works | Standard build tool for this stack |
+| @types/three | ^0.160.0 | @types/three | green | ✅ Works | Full TypeScript support |
+| nipplejs | ^0.10.0 | nipplejs | yellow | ⚠️ Verify | Virtual joystick for mobile; ESM compat TBD |
+| Orbitron | Google Font | — | green | ✅ Works | Loaded via CSS @import or CDN |

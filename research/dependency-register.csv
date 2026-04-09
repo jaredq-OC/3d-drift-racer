@@ -1,0 +1,11 @@
+# Dependency Register — 3D Drift Racer
+
+| DEP-ID | Name | Version | Reason | License | Auth/Secrets | Owner | Fallback |
+|--------|------|---------|--------|---------|-------------|-------|----------|
+| DEP-01 | three | ^0.160.0 | 3D rendering engine | MIT | None | Dev | — |
+| DEP-02 | cannon-es | ^0.20.0 | Physics + RaycastVehicle | MIT | None | Dev | custom force application |
+| DEP-03 | vite | ^5.0.0 | Bundler | MIT | None | Dev | — |
+| DEP-04 | nipplejs | ^0.10.0 | Virtual joystick | MIT | None | Dev | Custom canvas joystick |
+| DEP-05 | Orbitron | latest | HUD typography | OFL | None | Dev | — |
+
+No external services, no secrets, no quotas. All dependencies are client-side libraries.

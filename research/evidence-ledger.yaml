@@ -1,0 +1,55 @@
+# Evidence Ledger — 3D Drift Racer
+
+EV-01:
+  claim: "cannon-es supports RaycastVehicle with per-wheel lateral friction for drift simulation"
+  source_type: official_doc
+  url: https://pmndrs.github.io/cannon-es/
+  retrieved_at: 2026-04-09
+  supports: [DEC-02]
+  contradicts: []
+  strength: strong
+
+EV-02:
+  claim: "Three.js MeshToonMaterial with flatShading produces stylized low-poly visuals"
+  source_type: official_doc
+  url: https://threejs.org/docs/#api/en/materials/MeshToonMaterial
+  retrieved_at: 2026-04-09
+  supports: [DEC-06]
+  contradicts: []
+  strength: strong
+
+EV-03:
+  claim: "UnrealBloomPass available in three/addons/postprocessing for neon glow"
+  source_type: package_metadata
+  url: https://www.npmjs.com/package/three
+  retrieved_at: 2026-04-09
+  supports: [DEC-07]
+  contradicts: []
+  strength: strong
+
+EV-04:
+  claim: "cannon-es is the actively maintained ES module fork of cannon.js"
+  source_type: code_example
+  url: https://github.com/schteppe/cannon.js
+  retrieved_at: 2026-04-09
+  supports: [DEC-01]
+  contradicts: []
+  strength: strong
+
+EV-05:
+  claim: "nipplejs provides virtual joystick for mobile game controls"
+  source_type: package_metadata
+  url: https://www.npmjs.com/package/nipplejs
+  retrieved_at: 2026-04-09
+  supports: [DEC-03]
+  contradicts: []
+  strength: medium
+
+EV-06:
+  claim: "Vite provides zero-config ESM bundling with hot reload for Three.js projects"
+  source_type: official_doc
+  url: https://vitejs.dev/
+  retrieved_at: 2026-04-09
+  supports: [DEP-03]
+  contradicts: []
+  strength: strong
