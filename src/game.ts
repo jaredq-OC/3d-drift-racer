@@ -30,7 +30,8 @@ export class Game {
     this.camera = camera;
     this.composer = composer;
 
-    this.physicsWorld = new World({ gravity: new Vec3(0, 0, -9.82) });
+    // Scene is Y-up (track lies on X/Z plane, camera height is Y), so physics must also be Y-up.
+    this.physicsWorld = new World({ gravity: new Vec3(0, -9.82, 0) });
     (this.physicsWorld as any).broadphase = new CANNON.SAPBroadphase(this.physicsWorld);
     (this.physicsWorld as any).solver.iterations = 10;
     (this.physicsWorld as any).defaultContactMaterial.friction = 0.3;
@@ -84,7 +85,9 @@ export class Game {
       this.score.reset();
     }
 
-    this.composer.render();
+    // Direct render for now — explicit clear to ensure the frame is committed to the canvas.
+    this.renderer.clear();
+    this.renderer.render(this.scene, this.camera);
   }
 
   resize() {

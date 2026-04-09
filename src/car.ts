@@ -82,7 +82,7 @@ export class Car {
   private buildMesh(): THREE.Group {
     const group = new THREE.Group();
 
-    const orangeMat = new THREE.MeshLambertMaterial({ color: 0xff6b00, flatShading: true });
+    const orangeMat = new THREE.MeshBasicMaterial({ color: 0xff7a00 });
     const darkMat = new THREE.MeshLambertMaterial({ color: 0x1a1a1a, flatShading: true });
     const lightMat = new THREE.MeshBasicMaterial({ color: 0xffffdd });
     const cabinMat = new THREE.MeshLambertMaterial({ color: 0x111122, flatShading: true });
@@ -114,13 +114,17 @@ export class Car {
 
     // Headlights
     for (const sx of [-0.55, 0.55]) {
-      group.add(Object.assign(new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.12, 0.06), lightMat), { position: new THREE.Vector3(sx, 0.18, 1.23) }));
+      const hl = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.12, 0.06), lightMat);
+      hl.position.set(sx, 0.18, 1.23);
+      group.add(hl);
     }
 
     // Tail lights
     const tailMat = new THREE.MeshBasicMaterial({ color: 0xff0022 });
     for (const sx of [-0.55, 0.55]) {
-      group.add(Object.assign(new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.1, 0.06), tailMat), { position: new THREE.Vector3(sx, 0.18, -1.23) }));
+      const tl = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.1, 0.06), tailMat);
+      tl.position.set(sx, 0.18, -1.23);
+      group.add(tl);
     }
 
     // Wheels

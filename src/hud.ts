@@ -8,7 +8,7 @@ export class HUD {
   private driftRate!: HTMLElement;
 
   init() {
-    document.body.innerHTML += `
+    document.body.insertAdjacentHTML('beforeend', `
       <div id="hud">
         <div id="score-display">
           <div id="score-label">SCORE</div>
@@ -31,7 +31,7 @@ export class HUD {
       <div id="boost-flash"></div>
       <div id="joystick-zone"></div>
       <div id="touch-restart">R</div>
-    `;
+    `);
 
     this.scoreEl = document.getElementById('score-value')!;
     this.speedEl = document.getElementById('speed-value')!;

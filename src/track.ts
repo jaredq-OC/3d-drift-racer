@@ -7,7 +7,7 @@ export class Track {
   build() {
     // Ground plane
     const groundGeo = new THREE.PlaneGeometry(800, 800);
-    const groundMat = new THREE.MeshLambertMaterial({ color: 0x0d0015 });
+    const groundMat = new THREE.MeshLambertMaterial({ color: 0x26263a });
     const groundMesh = new THREE.Mesh(groundGeo, groundMat);
     groundMesh.rotation.x = -Math.PI / 2;
     groundMesh.position.y = -0.01;
@@ -70,7 +70,7 @@ export class Track {
     trackGeo.setIndex(indices);
     trackGeo.computeVertexNormals();
 
-    const trackMat = new THREE.MeshLambertMaterial({ color: 0x1a1a2e });
+    const trackMat = new THREE.MeshLambertMaterial({ color: 0x5a5a72 });
     this.scene.add(new THREE.Mesh(trackGeo, trackMat));
 
     // Neon barriers — cyan (left) and magenta (right) poles + top strips
